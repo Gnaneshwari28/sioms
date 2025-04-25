@@ -3,6 +3,7 @@ package com.sioms.inventory.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,7 +11,8 @@ import java.util.Date;
 
 @Component
 public class JwtTokenUtil {
-    private String secretKey = "your_secret_key";  // A strong key
+    @Value("${jwt.secret}")
+    private String secretKey;
 
     public String generateToken(UserDetails userDetails) {
         return Jwts.builder()
