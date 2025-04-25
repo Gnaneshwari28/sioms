@@ -1,7 +1,14 @@
 package com.sioms.inventory.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class AuthenticationResponse {
+    @JsonProperty
     private String token;
 
     public AuthenticationResponse() {}
@@ -10,12 +17,6 @@ public class AuthenticationResponse {
         this.token = token;
     }
 
-    public String getToken() {
-        return token;
-    }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
 }
 
